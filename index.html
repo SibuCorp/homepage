@@ -51,38 +51,7 @@
 <ul class="insta_list"></ul>
 <br>
 <div class="insta_btn"><a href="https://www.instagram.com/test_account.003/">view more</a></div>
-<script>
-    $(function () {
-	$.ajax({
-		type: 'GET',
-		url: 'https://graph.facebook.com/v6.0/17841460157634512?fields=name%2Cmedia.limit(4)%7Bcaption%2Clike_count%2Cmedia_url%2Cpermalink%2Ctimestamp%2Cthumbnail_url%2Cmedia_type%2Cusername%7D&access_token=EACE2zPZAQ7lIBAJy7BynTi4Axv4dNAFcBlHBcHE1WCBvAxf9K3F2pqYUZBaLeJQJ9q5cysiXZBxSljD5O3HZCmZAq0Foxd5rj29IaMyQZCBUsaZAb8XNYyJQM5fuA7lMDNC6g6bSuVrfoAgI6m50SgzZCYZCl3jixMGSyz18PJjMW0sFWxO5NhaBZB9acOqJbZAUuIZD',
-		dataType: 'json',
-		success: function (json) {
-
-			var html = '';
-			var insta = json.media.data;
-			for (var i = 0; i < insta.length; i++) {
-				var media_type = insta[i].media_type;
-				var options = { year: 'numeric', month: 'long', day: 'numeric' };
-				var date = new Date(insta[i].timestamp);
-				var dateString = new Intl.DateTimeFormat('ja-JP', options).format(date);
-				if (insta[i].media_type == "IMAGE" || insta[i].media_type == "CAROUSEL_ALBUM") {
-					html += '<li><a href="' + insta[i].permalink + '" target="_blank" rel="noopener noreferrer"><span class="square-content"><img src="' + insta[i].media_url + '"><dt>' + dateString + '</dt></span></a></li>';
-					// html += '<li><a href="' + insta[i].permalink + '" target="_blank" rel="noopener noreferrer"><span class="square-content"><img src="' + insta[i].media_url + '"></span></a></li>';
-				} else if (media_type == "VIDEO") {
-					html += '<li><a href="' + insta[i].permalink + '" target="_blank" rel="noopener noreferrer"><span class="square-content"><img src="' + insta[i].thumbnail_url + '"></span></a></li>';
-					var media_type = '';
-				}
-			}
-			$(".insta_list").append(html);
-		},
-		error: function () {
-
-			//エラー時の処理
-		}
-	});
-});
-</script>
+<script src="js/instagram.js"></script>
 
 </section>
 
