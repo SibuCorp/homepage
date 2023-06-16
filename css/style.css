@@ -374,3 +374,60 @@ ol {
 .big1 {font-size: 22px;letter-spacing: normal;}
 
 }
+
+/*Instagram
+-----------------------------*/
+.insta_list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.insta_list li{
+    position: relative;
+    width: calc((100% - 40px)/3);
+}
+
+@media screen and (max-width: 750px){
+    .insta_list li{
+        width: calc((100% - 20px)/2);
+    }
+}
+
+.insta_list li::before{
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+.insta_list a{
+	position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.insta_list img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.insta_btn{
+    background-color: #000;
+    padding: .5em 1em;
+    width: fit-content;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: .3s
+}
+
+.insta_btn a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.insta_btn:hover{
+    background-color: #999;
+}
